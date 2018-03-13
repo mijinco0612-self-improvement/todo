@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>index page</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+<p>todo list</p>
+<p>Now <span th:text="${now}">foobar</span></p>
+
+
+<ul>
+	<li th:each="todo : ${todos}" th:text="${todo.title}">aa</li>
+</ul>
+</body>
+</html>
