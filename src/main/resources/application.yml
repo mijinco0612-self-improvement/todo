@@ -15,3 +15,4 @@ mybatis:
     useColumnLabel: true
     mapUnderscoreToCamelCase: true
   mapper-locations: mybatis/sql/*.xml
+
