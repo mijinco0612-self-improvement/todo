@@ -7,11 +7,14 @@
 </head>
 <body>
 <p>todo list</p>
-<p>Now <span th:text="${now}">foobar</span></p>
 
-
+<form action="#" th:action="@{/todo}" th:object="${todo}" method="post">
+	<p>Title: <input type="text" th:field="*{title}"/></p>
+	<p>Detail: <input type="text" th:field="*{details}"/></p>
+	<input type="submit" value="送信"/>
+</form>
 <ul>
-	<li th:each="todo : ${todos}" th:text="${todo.title}">aa</li>
+	<li th:each="todo : ${todos}" th:text="${todo.title}"></li>
 </ul>
 </body>
 </html>

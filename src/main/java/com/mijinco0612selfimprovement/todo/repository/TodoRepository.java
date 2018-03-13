@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface TodoRepository {
 
-    void insert(Todo todo);
+    void register(Todo todo);
 
     Todo select(int id);
 

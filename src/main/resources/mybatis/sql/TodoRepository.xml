@@ -6,31 +6,31 @@
 
 <mapper namespace="com.mijinco0612selfimprovement.todo.repository.TodoRepository">
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO
-          todo (title, details, finished)
-        VALUES
-          (#{title}, #{details}, #{finished})
-    </insert>
-    <select id="select" resultType="com.mijinco0612selfimprovement.todo.model.Todo">
-        SELECT
-          id,
-          title,
-          details,
-          finished
-        FROM
-          todo
-        WHERE
-          id = #{id}
-    </select>
+<insert id="register" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO
+    todo (title, details, finished)
+    VALUES
+    (#{title}, #{details}, #{finished})
+</insert>
+<select id="find" resultType="com.mijinco0612selfimprovement.todo.model.Todo">
+    SELECT
+    id,
+    title,
+    details,
+    finished
+    FROM
+    todo
+    WHERE
+    id = #{id}
+</select>
 
-    <select id="findAll" resultType="com.mijinco0612selfimprovement.todo.model.Todo">
-        SELECT
-        id,
-        title,
-        details,
-        finished
-        FROM
-        todo
-    </select>
+<select id="findAll" resultType="com.mijinco0612selfimprovement.todo.model.Todo">
+    SELECT
+    id,
+    title,
+    details,
+    finished
+    FROM
+    todo
+</select>
 </mapper>
