@@ -8,7 +8,7 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_test
-    username: db_test_user
+    username: root
 
 mybatis:
   configuration:
