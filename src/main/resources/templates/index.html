@@ -4,17 +4,66 @@
 	<title>index page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"></link>
 </head>
 <body>
-<p>todo list</p>
 
-<form action="#" th:action="@{/todo}" th:object="${todo}" method="post">
-	<p>Title: <input type="text" th:field="*{title}"/></p>
-	<p>Detail: <input type="text" th:field="*{details}"/></p>
-	<input type="submit" value="送信"/>
-</form>
-<ul>
-	<li th:each="todo : ${todos}" th:text="${todo.title}"></li>
-</ul>
+
+<div class="container">
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="/">
+				<img src="http://www.emoji.co.uk/files/emoji-one/symbols-emoji-one/2220-ballot-box-with-check.png" alt="icon"/>
+				<h1 class="title">TodoList</h1>
+			</a>
+
+			<div class="navbar-burger">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</nav>
+	<div class="columns">
+		<div class="column is-one-third">
+			<form action="#" th:action="@{/todo}" th:object="${todo}" method="post">
+				<div class="field">
+					<label class="label">Title</label>
+					<input class="input" type="text" th:field="*{title}"/>
+				</div>
+				<div class="field">
+					<label class="label">Details</label>
+					<input class="input" type="text" th:field="*{details}"/>
+				</div>
+				<div class="control">
+					<button class="button is-primary" type="submit">送信</button>
+				</div>
+			</form>
+		</div>
+		<div class="column">
+			<div class="card" th:each="todo : ${todos}" style="margin: 10px 10px">
+				<header class="card-header">
+					<p class="card-header-title" th:text="*{todo.title}"></p>
+					<a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+					</a>
+				</header>
+				<div class="card-content">
+					<div class="content" th:text="*{todo.details}">
+					</div>
+				</div>
+				<footer class="card-footer">
+					<a href="#" class="card-footer-item">Edit</a>
+					<a href="#" class="card-footer-item">Delete</a>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+	</footer>
+</div>
+
 </body>
 </html>
