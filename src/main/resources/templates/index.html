@@ -25,25 +25,28 @@
 		</div>
 	</nav>
 	<div class="columns">
-		<div class="column is-one-third">
-			<form action="#" th:action="@{/todo}" th:object="${todo}" method="post">
-				<div class="field">
-					<label class="label">Title</label>
-					<input class="input" type="text" th:field="*{title}"/>
-				</div>
-				<div class="field">
-					<label class="label">Details</label>
-					<input class="input" type="text" th:field="*{details}"/>
-				</div>
-				<div class="control">
-					<button class="button is-primary" type="submit">送信</button>
+
+		<div class="column">
+			<form action="#" th:action="@{/task}" th:object="${task}" method="post">
+				<div class="field has-addons">
+					<div class="control">
+						<input class="input" type="text" th:field="*{title}" placeholder="Add task"/>
+					</div>
+					<div class="control">
+						<button class="button is-info" type="submit">
+							Add
+						</button>
+						<button class="button is-warning" type="submit">
+							edit
+						</button>
+					</div>
 				</div>
 			</form>
-		</div>
-		<div class="column">
-			<div class="card" th:each="todo : ${todos}" style="margin: 10px 10px">
+
+
+			<div class="card" th:each="task : ${tasks}" style="margin: 10px 10px">
 				<header class="card-header">
-					<p class="card-header-title" th:text="*{todo.title}"></p>
+					<p class="card-header-title" th:text="*{task.title}"></p>
 					<a href="#" class="card-header-icon" aria-label="more options">
       <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -51,7 +54,7 @@
 					</a>
 				</header>
 				<div class="card-content">
-					<div class="content" th:text="*{todo.details}">
+					<div class="content" th:text="*{task.details}">
 					</div>
 				</div>
 				<footer class="card-footer">
