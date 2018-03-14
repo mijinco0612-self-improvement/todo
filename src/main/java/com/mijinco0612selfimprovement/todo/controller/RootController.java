@@ -1,7 +1,7 @@
 package com.mijinco0612selfimprovement.todo.controller;
 
-import com.mijinco0612selfimprovement.todo.model.Todo;
-import com.mijinco0612selfimprovement.todo.service.TodoService;
+import com.mijinco0612selfimprovement.todo.model.Task;
+import com.mijinco0612selfimprovement.todo.service.TaskService;
 import lombok.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.*;
 public class RootController {
 
     @NonNull
-    private final TodoService todoService;
+    private final TaskService taskService;
 
-    public RootController(TodoService todoService) {
-        this.todoService = todoService;
+    public RootController(TaskService taskService) {
+        this.taskService = taskService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("todos",todoService.findAll());
-        model.addAttribute("todo", new Todo());
+        model.addAttribute("tasks", taskService.findAll());
+        model.addAttribute("task", new Task());
         return "index";
     }
 
-    @RequestMapping(path = "/todo", method = RequestMethod.POST)
-    String create(Model model, @ModelAttribute Todo todo) {
-        todoService.register(todo);
+    @RequestMapping(path = "/task", method = RequestMethod.POST)
+    String create(Model model, @ModelAttribute Task task) {
+        taskService.register(task);
         return "redirect:/";
     }
 }

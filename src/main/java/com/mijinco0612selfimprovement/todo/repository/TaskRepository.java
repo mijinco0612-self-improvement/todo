@@ -1,6 +1,6 @@
 package com.mijinco0612selfimprovement.todo.repository;
 
-import com.mijinco0612selfimprovement.todo.model.Todo;
+import com.mijinco0612selfimprovement.todo.model.Task;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -8,13 +8,13 @@ import java.util.List;
 
 @Repository
 @Mapper
-public interface TodoRepository {
+public interface TaskRepository {
 
-    void register(Todo todo);
+    void register(Task task);
 
-    Todo select(int id);
+    Task select(int id);
 
-    List<Todo> findAll();
+    List<Task> findAll();
 }
 
 

@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    mode: HTML5
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_test
+    username: root
+
+mybatis:
+  configuration:
+    useColumnLabel: true
+    mapUnderscoreToCamelCase: true
+  mapper-locations: mybatis/sql/*.xml
+
