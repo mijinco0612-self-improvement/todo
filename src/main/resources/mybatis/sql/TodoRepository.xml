@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mijinco0612selfimprovement.todo.repository.TodoRepository">
+
+<insert id="register" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO
+    todo (title, details, finished)
+    VALUES
+    (#{title}, #{details}, #{finished})
+</insert>
+<select id="find" resultType="com.mijinco0612selfimprovement.todo.model.Todo">
+    SELECT
+    id,
+    title,
+    details,
+    finished
+    FROM
+    todo
+    WHERE
+    id = #{id}
+</select>
+
+<select id="findAll" resultType="com.mijinco0612selfimprovement.todo.model.Todo">
+    SELECT
+    id,
+    title,
+    details,
+    finished
+    FROM
+    todo
+</select>
+</mapper>
