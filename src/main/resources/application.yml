@@ -7,8 +7,10 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
+    #url: jdbc:mysql:aurora://mytodo.c9xxxxxxx.ap-northeast-1.rds.amazonaws.com:3306/db_test
     url: jdbc:mysql://localhost:3306/db_test
     username: root
+
 
 mybatis:
   configuration:
