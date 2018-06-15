@@ -6,31 +6,26 @@
 
 <mapper namespace="com.mijinco0612selfimprovement.todo.repository.TaskRepository">
 
-<insert id="register" useGeneratedKeys="true" keyProperty="id">
+    <insert id="register" useGeneratedKeys="true" keyProperty="id">
     INSERT INTO
-    task (title, details, finished)
+    task (title, finished)
     VALUES
-    (#{title}, #{details}, #{finished})
-</insert>
-<select id="find" resultType="com.mijinco0612selfimprovement.todo.model.Task">
-    SELECT
-    task_id,
-    title,
-    details,
-    finished
-    FROM
-    task
-    WHERE
-    task_id = #{id}
-</select>
+    (#{title}, #{finished})
+    </insert>
 
-<select id="findAll" resultType="com.mijinco0612selfimprovement.todo.model.Task">
+    <select id="findAll" resultType="com.mijinco0612selfimprovement.todo.model.Task">
     SELECT
     task_id,
     title,
-    details,
     finished
     FROM
     task
-</select>
+    </select>
+    <delete id="deleteTask">
+        delete from
+          db_test.task
+        where
+          db_test.task.task_id = #{task_id}
+    </delete>
+
 </mapper>

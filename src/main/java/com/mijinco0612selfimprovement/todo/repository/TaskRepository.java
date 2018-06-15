@@ -12,9 +12,9 @@ public interface TaskRepository {
 
     void register(Task task);
 
-    Task select(int id);
-
     List<Task> findAll();
+
+    void deleteTask(Task task);
 }
 
 

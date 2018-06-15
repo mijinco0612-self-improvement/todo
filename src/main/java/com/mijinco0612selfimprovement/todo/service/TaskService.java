@@ -18,12 +18,14 @@ public class TaskService {
     }
 
     public List<Task> findAll(){
-        List<Task> tasks = taskRepository.findAll();
-        return tasks;
+       return taskRepository.findAll();
     }
 
     public void register(Task task){
-        System.out.println(task);
         taskRepository.register(task);
+    }
+
+    public void deleteTask(Task task){
+        taskRepository.deleteTask(task);
     }
 }

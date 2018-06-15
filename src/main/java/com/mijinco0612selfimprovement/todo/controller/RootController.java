@@ -29,4 +29,16 @@ public class RootController {
         taskService.register(task);
         return "redirect:/";
     }
+
+    @RequestMapping(path = "/deltask", method = RequestMethod.DELETE)
+    String delete(Model model, @ModelAttribute Task task) {
+        taskService.deleteTask(task);
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/task", method = RequestMethod.PUT)
+    String update(Model model, @ModelAttribute Task task) {
+        taskService.deleteTask(task);
+        return "redirect:/";
+    }
 }
